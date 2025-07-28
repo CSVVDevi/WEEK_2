@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Register</title>
+   
+</head>
+<body>
+<center>
+    <div class="form-card">
+        <h2>Registration Form</h2>
+        <form id="regForm">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <div class="error" id="firstNameError"></div>
+
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <div class="error" id="lastNameError"></div>
+
+            <input type="tel" id="phone" placeholder="Phone (10 digits)" pattern="[0-9]{10}" required>
+            <div class="error" id="phoneError"></div>
+
+            <input type="email" id="email" placeholder="Email" required>
+            <div class="error" id="emailError"></div>
+
+            <button type="submit">Register</button>
+		<button type="login">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            document.querySelectorAll('.error').forEach(err => err.style.display = 'none');
+
+            const validate = (id, msg, regex = /.+/) => {
+                const input = document.getElementById(id);
+                if (!regex.test(input.value.trim())) {
+                    document.getElementById(id + 'Error').textContent = msg;
+                    document.getElementById(id + 'Error').style.display = 'block';
+                    isValid = false;
+                }
+            };
+
+            validate('firstName', 'First name required.');
+            validate('lastName', 'Last name required.');
+            validate('phone', '10-digit phone number required.', /^[0-9]{10}$/);
+            validate('email', 'Valid email required.', /^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+
+            if (isValid) {
+                alert('Registration successful!');
+                // In a real app, send data to server here.
+            }
+        });
+    </script>
+</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
