@@ -9,7 +9,7 @@
 <body>
 <center>
     <div class="form-card">
-        <h2>Registration Form</h2>
+        <h2><b><i>Registration Form</b></i></h2>
         <form id="regForm">
             <input type="text" id="firstName" placeholder="First Name" required>
             <div class="error" id="firstNameError"></div>
@@ -22,9 +22,20 @@
 
             <input type="email" id="email" placeholder="Email" required>
             <div class="error" id="emailError"></div>
+		
+	     <h3>Select Your Interests:</h3>
 
+    <form action="/submit_interests" method="post">
+        <input type="checkbox" id="html" name="interest" value="html">
+        <label for="html">HTML</label><br>
+
+        <input type="checkbox" id="css" name="interest" value="css">
+        <label for="css">CSS</label><br>
+
+        <input type="checkbox" id="javascript" name="interest" value="javascript" checked>
+        <label for="javascript">JavaScript</label><br><br>
             <button type="submit">Register</button>
-		<button type="login">Login</button>
+	
         </form>
     </div>
 
